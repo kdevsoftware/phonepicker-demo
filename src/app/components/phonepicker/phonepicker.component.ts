@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhonepickerService } from './phonepicker.service';
 
 interface City {
   name: string;
@@ -12,19 +13,13 @@ interface City {
 })
 export class PhonepickerComponent implements OnInit {
 
-  cities2: City[];
+  cities2;
 
   selectedCity2: City;
 
-  constructor() {
+  constructor(private phonepickerService: PhonepickerService) {
     //An array of cities
-    this.cities2 = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-    ];
+    this.cities2 = this.phonepickerService.getCountries();
   }
 
   ngOnInit() {
