@@ -6,6 +6,9 @@ import { PhonepickerComponent } from './phonepicker/phonepicker.component';
   declarations: [PhonepickerComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PhonepickerComponent
   ]
 })
 export class ComponentsModule { }
