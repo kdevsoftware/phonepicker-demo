@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhonepickerService } from './phonepicker.service';
-
-interface City {
-  name: string;
-  code: string;
-}
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'phonepicker',
@@ -13,13 +9,11 @@ interface City {
 })
 export class PhonepickerComponent implements OnInit {
 
-  cities2;
-
-  selectedCity2: City;
+  countries;
+  selectedCountry;
 
   constructor(private phonepickerService: PhonepickerService) {
-    //An array of cities
-    this.cities2 = this.phonepickerService.getCountries();
+    this.countries = this.phonepickerService.getCountries();
   }
 
   ngOnInit() {
