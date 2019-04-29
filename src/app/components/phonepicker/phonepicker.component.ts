@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-phonepicker',
+  selector: 'phonepicker',
   templateUrl: './phonepicker.component.html',
   styleUrls: ['./phonepicker.component.scss']
 })
