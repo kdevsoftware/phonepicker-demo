@@ -12,8 +12,8 @@
 </p-dropdown>
 
 
-<input type="text" pInputText pKeyFilter="int" placeholder="Integers" (input)="keyDown($event)"
+<input type="text" pInputText pKeyFilter="int" placeholder="Integers" (input)="inputEventHandler($event)"
   [(ngModel)]="phoneNumber">
 
 
-<button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="result"></button>
+<button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="isCallable"></button>

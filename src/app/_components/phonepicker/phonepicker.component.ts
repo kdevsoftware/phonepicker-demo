@@ -1,39 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { PhonepickerService } from './phonepicker.service';
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
+import { Observable } from 'rxjs';
+
+interface Country {
+  name: string,
+  alpha2Code: string,
+  callingCodes: Array<string>
+}
 
 @Component({
   selector: 'phonepicker',
   templateUrl: './phonepicker.component.html',
   styleUrls: ['./phonepicker.component.scss']
 })
-export class PhonepickerComponent implements OnInit {
-
-  console = console;
-
-  countries;
-  selectedCountry;
-  cc;
-  backup;
-  result = true;
+export class PhonepickerComponent {
+  countries: Observable<Object>;
+  isCallable: boolean = true;
+  selectedCountry: Country;
+  phoneNumberButCountry: string;
 
   constructor(private phonepickerService: PhonepickerService) {
     this.countries = this.phonepickerService.getCountries();
   }
 
-  ngOnInit() {
+  getPhoneNumber(): string {
+    return this.selectedCountry.callingCodes[0] + this.phoneNumberButCountry.replace(/\D/g, '');
   }
 
-  keyDown(event) {
+  inputEventHandler(event: any) {
     const phoneNumber = `+${this.selectedCountry.callingCodes[0] + event.target.value}`;
 
-    this.result = !parsePhoneNumberFromString(phoneNumber).isValid();
+    this.isCallable = !parsePhoneNumberFromString(phoneNumber).isValid();
 
-    if (!this.result) {
-      this.cc = parsePhoneNumberFromString(phoneNumber).formatNational();
-    } else {
-      this.cc = this.cc.replace(/\D/g, '');
-    }
+    this.phoneNumberButCountry = this.isCallable
+      ? parsePhoneNumberFromString(phoneNumber).formatNational()
+      : this.phoneNumberButCountry.replace(/\D/g, '');
   }
-
 }
