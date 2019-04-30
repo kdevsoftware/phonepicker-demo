@@ -20,7 +20,8 @@ export const PHONEPICKER_VALUE_ACCESSOR: any = {
 @Component({
   selector: 'phonepicker',
   templateUrl: './phonepicker.component.html',
-  styleUrls: ['./phonepicker.component.scss']
+  styleUrls: ['./phonepicker.component.scss'],
+  providers: [PHONEPICKER_VALUE_ACCESSOR]
 })
 export class PhonepickerComponent implements ControlValueAccessor {
   private phonepicker: FormGroup;
