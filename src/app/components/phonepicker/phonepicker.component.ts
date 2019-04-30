@@ -19,4 +19,8 @@ export class PhonepickerComponent implements OnInit {
   ngOnInit() {
   }
 
+  keyPress(event) {
+    console.log('event = ', event);
+  }
+
 }

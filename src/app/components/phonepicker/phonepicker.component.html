@@ -6,3 +6,7 @@
     <span>{{ items.value.name }}</span>
   </ng-template>
 </p-dropdown>
+
+<input type="text" pInputText pKeyFilter="int" placeholder="Integers" (keypress)="keyPress($event)">
+
+<button pButton type="button" icon="fa fa-phone" label="Call"></button>
