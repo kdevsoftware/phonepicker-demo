@@ -1,27 +1,39 @@
 # PhonepickerDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+[Demo](https://kdevsoftware.github.io/phonepicker-demo/)
+
+Node: 10.15.3
+npm: 6.9.0
+Angular: 7.2.14
+Angular CLI: 7.2.4
+
+## Task List
+
+- [x] Angular 6+ with Scss
+- [x] It should be a custom form component using ​ControlValueAccessor
+- [x] Extend or template Primeng dropdown: ​`https://www.primefaces.org/primeng/#/dropdown`
+- [x] Integrate API for the list of countries: ​`https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;callingCodes`
+- [x] libphonenumber-js​​ for validation
+- [x] Insert the flag images to the dropdown option
+- [x] Styling as the following image:
+      ![alt text](https://github.com/kdevsoftware/phonepicker-demo/blob/master/mockup.png)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+$ git clone https://github.com/kdevsoftware/phonepicker-demo.git
+$ cd phonepicker-demo
+$ npm install
+$ npm start
+```
 
-## Code scaffolding
+Navigate to `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Deploying to Github page
 
-## Build
+```
+$ ng build --prod --aot --base-href "https://kdevsoftware.github.io/phonepicker-demo/"
+$ sudo ngh
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Navigate to `https://kdevsoftware.github.io/phonepicker-demo/`
