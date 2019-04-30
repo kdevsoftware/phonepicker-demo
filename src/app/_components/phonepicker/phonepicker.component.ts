@@ -49,13 +49,6 @@ export class PhonepickerComponent implements ControlValueAccessor {
 
   registerOnTouched() { }
 
-  getPhoneNumber(): string {
-    const countryInfo = this.phonepicker.get('countryInfo').value;
-    const phoneNumber = this.phonepicker.get('phoneNumber').value;
-
-    return countryInfo['callingCodes'][0] + phoneNumber.replace(/\D/g, '');
-  }
-
   inputEventHandler(event: any) {
     const countryInfo = this.phonepicker.get('countryInfo').value;
     const phoneNumber = this.phonepicker.get('phoneNumber').value;
