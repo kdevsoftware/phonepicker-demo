@@ -1,4 +1,5 @@
-<form [formGroup]="phonepickerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="phonepickerForm">
   <phonepicker formControlName="phonepicker"></phonepicker>
-  <button type="submit">Submit</button>
 </form>
+
+{{ this.phonepickerForm.value | json }}

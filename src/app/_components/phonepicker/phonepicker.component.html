@@ -17,5 +17,5 @@
     formControlName="phoneNumber">
 
 
-  <button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="!isCallable"></button>
+  <button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="!isCallable" (click)="onCall()"></button>
 </div>

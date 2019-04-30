@@ -11,14 +11,7 @@ export class AppComponent {
 
   constructor(private _formBuilder: FormBuilder) {
     this.phonepickerForm = this._formBuilder.group({
-      phonepicker: [{
-        countryInfo: {},
-        phoneNumber: ''
-      }]
+      phonepicker: [null]
     });
-  }
-
-  onSubmit() {
-    console.log(this.phonepickerForm.value);
   }
 }

@@ -38,9 +38,14 @@ export class PhonepickerComponent implements ControlValueAccessor {
   }
 
   writeValue(value: any) {
-    if (value) {
-      this.phonepicker.setValue(value);
-    }
+    this.phonepicker.setValue(value ? value : {
+      countryInfo: {
+        alpha2Code: 'FR',
+        callingCodes: ['33'],
+        name: 'France',
+      },
+      phoneNumber: ''
+    });
   }
 
   registerOnChange(fn: any) {
@@ -55,7 +60,9 @@ export class PhonepickerComponent implements ControlValueAccessor {
 
     const countryPhoneNumber = `+${countryInfo.callingCodes[0] + event.target.value}`;
 
-    this.isCallable = parsePhoneNumberFromString(countryPhoneNumber).isValid();
+    if (phoneNumber.length > 1) {
+      this.isCallable = parsePhoneNumberFromString(countryPhoneNumber).isValid();
+    }
 
     this.phonepicker.setValue({
       countryInfo,
@@ -63,5 +70,16 @@ export class PhonepickerComponent implements ControlValueAccessor {
         ? parsePhoneNumberFromString(countryPhoneNumber).formatInternational().replace(`+${countryInfo.callingCodes[0]}`, '')
         : phoneNumber.replace(/\D/g, '')
     });
+  }
+
+  getCountryPhoneNumber(): string {
+    const countryCode = `+${this.phonepicker.get('countryInfo').value.callingCodes[0]} `;
+    const phoneNumber = this.phonepicker.get('phoneNumber').value;
+
+    return countryCode + phoneNumber;
+  }
+
+  onCall(): void {
+    console.log('Calling: ', this.getCountryPhoneNumber());
   }
 }
