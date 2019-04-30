@@ -1,9 +1,25 @@
+// phone-picker
+$phone-picker-bg: #f3f3f3;
+$phone-picker-border-radius: 100px;
+
 // dropdown
 $dropdown-bg: #d2d2d2;
 $dropdown-trigger-font-size: 15px;
 
 // input
-$input-bg: #f3f3f3;
-$input-color: #333;
+$input-color: #808080;
 $input-font-size: 16px;
 $input-padding-x: 10px;
+
+// calling
+$calling-bg: green;
+$calling-color: white;
+$calling-bg-ehover: green;
+$calling-color-ehover: white;
+
+$calling-font-size: 15px;
+$calling-icon-font-size: inherit;
+
+$calling-padding-r: 16px;
+$calling-icon-left-space: 12px;
+$calling-icon-right-space: 32px;
