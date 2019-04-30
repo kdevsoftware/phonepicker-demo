@@ -10,4 +10,4 @@
 
 <input type=" text" pInputText pKeyFilter="int" placeholder="Integers" (input)="keyDown($event)" [(ngModel)]="cc">
 
-<button pButton type="button" icon="fa fa-phone" label="Call"></button>
+<button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="result"></button>

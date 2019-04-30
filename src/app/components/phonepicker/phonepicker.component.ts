@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PhonepickerService } from './phonepicker.service';
 import { Observable } from 'rxjs';
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
-import { AsYouType } from 'libphonenumber-js'
+import { parsePhoneNumberFromString, findNumbers } from 'libphonenumber-js'
+import { AsYouType } from 'libphonenumber-js/mobile'
 
 @Component({
   selector: 'phonepicker',
@@ -17,6 +17,7 @@ export class PhonepickerComponent implements OnInit {
   selectedCountry;
   cc;
   backup;
+  result = true;
 
   constructor(private phonepickerService: PhonepickerService) {
     this.countries = this.phonepickerService.getCountries();
@@ -28,7 +29,13 @@ export class PhonepickerComponent implements OnInit {
   keyDown(event) {
     const phoneNumber = `+${this.selectedCountry.callingCodes[0] + event.target.value}`;
 
-    console.log(parsePhoneNumberFromString(phoneNumber).isValid());
+    this.result = !parsePhoneNumberFromString(phoneNumber).isValid();
+
+    if (!this.result) {
+      this.cc = parsePhoneNumberFromString(phoneNumber).formatNational();
+    } else {
+      this.cc = this.cc.replace(/\D/g, '');
+    }
   }
 
 }
