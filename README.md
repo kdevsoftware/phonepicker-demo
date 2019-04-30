@@ -2,10 +2,12 @@
 
 [Demo](https://kdevsoftware.github.io/phonepicker-demo/)
 
+```
 Node: 10.15.3
 npm: 6.9.0
 Angular: 7.2.14
 Angular CLI: 7.2.4
+```
 
 ## Task List
 
