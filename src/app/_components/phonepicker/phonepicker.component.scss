@@ -5,6 +5,7 @@
   display: flex;
   background: $phone-picker-bg;
   border-radius: $phone-picker-border-radius;
+  position: relative;
 
   .country-code {
     .ui-dropdown {
@@ -12,13 +13,27 @@
       background: $dropdown-bg;
       border: none;
       border-radius: $phone-picker-border-radius 0 0 $phone-picker-border-radius;
+      position: unset;
+      display: flex;
+
+      .ui-dropdown-label {
+        padding-left: 10px;
+        padding-right: 0px;
+      }
 
       .ui-inputtext {
         background: transparent;
       }
 
       .ui-dropdown-trigger {
+        width: 24px;
         background: transparent;
+        position: unset;
+
+        .ui-dropdown-trigger-icon {
+          position: unset;
+          margin-top: 0.5em;
+        }
 
         .pi {
           font-size: $dropdown-trigger-font-size;
