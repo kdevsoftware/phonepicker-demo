@@ -31,6 +31,7 @@ $ npm start
 ```
 
 Navigate to `http://localhost:4200/`.
+Try check the console log when hit the calling button.
 
 ## Deploying to Github page
 
