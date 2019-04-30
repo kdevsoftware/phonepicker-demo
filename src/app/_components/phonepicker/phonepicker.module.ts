@@ -7,9 +7,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { ButtonModule } from 'primeng/button';
 
-import { PhonepickerService } from './phonepicker/phonepicker.service';
+import { PhonepickerService } from './phonepicker.service';
 
-import { PhonepickerComponent } from './phonepicker/phonepicker.component';
+import { PhonepickerComponent } from './phonepicker.component';
 
 @NgModule({
   declarations: [PhonepickerComponent],
@@ -28,4 +28,4 @@ import { PhonepickerComponent } from './phonepicker/phonepicker.component';
     PhonepickerService
   ]
 })
-export class ComponentsModule { }
+export class PhonepickerModule { }
