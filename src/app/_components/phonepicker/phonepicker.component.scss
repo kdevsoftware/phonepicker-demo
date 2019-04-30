@@ -1,1 +1,46 @@
 @import './flags.scss';
+@import './variable.scss';
+
+.phone-picker {
+  display: flex;
+
+  .country-code {
+    .ui-dropdown {
+      min-width: unset !important;
+      background: $dropdown-bg;
+      border: none;
+      border-radius: 0px;
+
+      .ui-inputtext {
+        background: transparent;
+      }
+
+      .ui-dropdown-trigger {
+        background: transparent;
+
+        .pi {
+          font-size: $dropdown-trigger-font-size;
+        }
+
+        .pi-chevron-down {
+          &:before {
+            content: '\e906';
+          }
+        }
+      }
+    }
+  }
+
+  .phone-number {
+    flex: 1;
+
+    input {
+      width: 100%;
+      height: 100%;
+      outline: none;
+    }
+  }
+
+  .calling {
+  }
+}

@@ -1,21 +1,25 @@
-<div [formGroup]="phonepicker">
-  <p-dropdown [options]="countries | async" optionLabel="name" formControlName="countryInfo">
+<div [formGroup]="phonepicker" class="phone-picker">
+  <div class="country-code">
+    <p-dropdown [options]="countries | async" optionLabel="name" formControlName="countryInfo">
 
-    <ng-template let-selectedCountry pTemplate="selectedItem">
-      <div>+{{ selectedCountry.value.callingCodes }}</div>
-    </ng-template>
+      <ng-template let-selectedCountry pTemplate="selectedItem">
+        <div>+{{ selectedCountry.value.callingCodes }}</div>
+      </ng-template>
 
-    <ng-template let-country pTemplate="item">
-      <div [ngClass]="'flag flag-' + country.value.alpha2Code.toLowerCase()"></div>
-      <div>{{ country.value.name }}</div>
-    </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div [ngClass]="'flag flag-' + country.value.alpha2Code.toLowerCase()"></div>
+        <div>{{ country.value.name }}</div>
+      </ng-template>
 
-  </p-dropdown>
+    </p-dropdown>
+  </div>
 
+  <div class="phone-number">
+    <input type="text" pInputText pKeyFilter="int" placeholder="Integers" (input)="inputEventHandler($event)"
+      formControlName="phoneNumber">
+  </div>
 
-  <input type="text" pInputText pKeyFilter="int" placeholder="Integers" (input)="inputEventHandler($event)"
-    formControlName="phoneNumber">
-
-
-  <button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="!isCallable" (click)="onCall()"></button>
+  <div class="calling">
+    <button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="!isCallable" (click)="onCall()"></button>
+  </div>
 </div>

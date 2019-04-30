@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { parsePhoneNumberFromString, parsePhoneNumber, ParseError } from 'libphonenumber-js'
@@ -21,6 +21,7 @@ export const PHONEPICKER_VALUE_ACCESSOR: any = {
   selector: 'phonepicker',
   templateUrl: './phonepicker.component.html',
   styleUrls: ['./phonepicker.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [PHONEPICKER_VALUE_ACCESSOR]
 })
 export class PhonepickerComponent implements ControlValueAccessor {
