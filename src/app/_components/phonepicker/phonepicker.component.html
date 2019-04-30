@@ -1,13 +1,19 @@
 <p-dropdown [options]="countries | async" [(ngModel)]="selectedCountry" optionLabel="name">
-  <ng-template let-item pTemplate="selectedItem">
-    <span>+{{ item.value.callingCodes }}</span>
+
+  <ng-template let-selectedCountry pTemplate="selectedItem">
+    <div>+{{ selectedCountry.value.callingCodes }}</div>
   </ng-template>
-  <ng-template let-items pTemplate="item">
-    <div [ngClass]="'flag flag-' + items.value.alpha2Code.toLowerCase()"></div>
-    <span>{{ items.value.name }}</span>
+
+  <ng-template let-country pTemplate="item">
+    <div [ngClass]="'flag flag-' + country.value.alpha2Code.toLowerCase()"></div>
+    <div>{{ country.value.name }}</div>
   </ng-template>
+
 </p-dropdown>
 
-<input type=" text" pInputText pKeyFilter="int" placeholder="Integers" (input)="keyDown($event)" [(ngModel)]="cc">
+
+<input type="text" pInputText pKeyFilter="int" placeholder="Integers" (input)="keyDown($event)"
+  [(ngModel)]="phoneNumber">
+
 
 <button pButton type="button" icon="fa fa-phone" label="Call" [disabled]="result"></button>

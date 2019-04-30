@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhonepickerService } from './phonepicker.service';
-import { Observable } from 'rxjs';
-import { parsePhoneNumberFromString, findNumbers } from 'libphonenumber-js'
-import { AsYouType } from 'libphonenumber-js/mobile'
+import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
 @Component({
   selector: 'phonepicker',
