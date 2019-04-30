@@ -27,37 +27,26 @@ export class PhonepickerComponent implements ControlValueAccessor {
   private countries: Observable<Object>;
   private isCallable: boolean = false;
 
-  private onChange: any = () => { };
-  private onTouch: any = () => { };
-
   constructor(private _phonepickerService: PhonepickerService, private _formBuilder: FormBuilder) {
     this.phonepicker = this._formBuilder.group({
-      countryInfo: {},
-      phoneNumber: ''
+      countryInfo: [{}],
+      phoneNumber: ['']
     });
 
     this.countries = this._phonepickerService.getCountries();
   }
 
-  set value(val: any) {  // this value is updated by programmatic changes if( val !== undefined && this.val !== val){
-    this.onChange(val)
-    this.onTouch(val)
-  }
-
-  // this method sets the value programmatically
   writeValue(value: any) {
-    this.value = value
+    if (value) {
+      this.phonepicker.setValue(value);
+    }
   }
 
-  // upon UI element value changes, this method gets triggered
   registerOnChange(fn: any) {
-    this.onChange = fn
+    this.phonepicker.valueChanges.subscribe(fn);
   }
 
-  // upon touching the element, this method gets triggered
-  registerOnTouched(fn: any) {
-    this.onTouch = fn
-  }
+  registerOnTouched() { }
 
   getPhoneNumber(): string {
     const countryInfo = this.phonepicker.get('countryInfo').value;

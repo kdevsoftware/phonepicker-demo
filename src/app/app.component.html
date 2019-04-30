@@ -1,1 +1,4 @@
-<phonepicker></phonepicker>
+<form [formGroup]="phonepickerForm" (ngSubmit)="onSubmit()">
+  <phonepicker formControlName="phonepicker"></phonepicker>
+  <button type="submit">Submit</button>
+</form>
