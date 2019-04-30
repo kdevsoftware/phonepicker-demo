@@ -1,1 +1,139 @@
 @import './flags.scss';
+@import './variable.scss';
+
+.phone-picker {
+  display: flex;
+  background: $phone-picker-bg;
+  border-radius: $phone-picker-border-radius;
+  position: relative;
+
+  .country-code {
+    .ui-dropdown {
+      min-width: unset !important;
+      background: $dropdown-bg;
+      border: none;
+      border-radius: $phone-picker-border-radius 0 0 $phone-picker-border-radius;
+      position: unset;
+      display: flex;
+
+      .ui-dropdown-label {
+        padding-left: 10px;
+        padding-right: 0px;
+      }
+
+      .ui-inputtext {
+        background: transparent;
+      }
+
+      .ui-dropdown-trigger {
+        width: 24px;
+        background: transparent;
+        position: unset;
+
+        .ui-dropdown-trigger-icon {
+          position: unset;
+          margin-top: 0.5em;
+        }
+
+        .pi {
+          font-size: $dropdown-trigger-font-size;
+        }
+
+        .pi-chevron-down {
+          &:before {
+            content: '\e906';
+          }
+        }
+      }
+
+      .ui-dropdown-panel {
+        top: 34px !important;
+        left: 4px !important;
+        min-width: calc(100% - 8px);
+
+        .ui-dropdown-items {
+          .ui-dropdown-item {
+            display: flex;
+            align-items: center;
+
+            .country-name {
+              margin-left: 24px;
+            }
+          }
+
+          .ui-dropdown-item.ui-state-highlight {
+            background-color: $calling-bg;
+          }
+        }
+
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: $dropdown-bg;
+          border: 4px solid transparent;
+          background-clip: content-box; /* THIS IS IMPORTANT */
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: $calling-bg;
+          border: 1px solid $calling-bg;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  .phone-number {
+    flex: 1;
+
+    input {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      background: transparent;
+      color: $input-color;
+      font-size: $input-font-size;
+      padding: 0 $input-padding-x;
+    }
+  }
+
+  .calling {
+    .ui-button {
+      width: 100%;
+      height: 100%;
+      background-color: $calling-bg;
+      color: $calling-color;
+      border: none;
+      border-radius: $phone-picker-border-radius;
+      outline: none;
+      font-size: $calling-font-size;
+      padding: 0 $calling-padding-r 0 0;
+
+      &:enabled:hover {
+        background-color: $calling-bg-ehover;
+        color: $calling-color-ehover;
+      }
+
+      &:enabled:focus {
+        box-shadow: none;
+      }
+
+      .fa {
+        font-size: $calling-icon-font-size;
+      }
+
+      .ui-button-icon-left {
+        left: $calling-icon-left-space;
+      }
+
+      .ui-button-text {
+        padding: 0 0 0 $calling-icon-right-space;
+        line-height: 1;
+      }
+    }
+  }
+}
