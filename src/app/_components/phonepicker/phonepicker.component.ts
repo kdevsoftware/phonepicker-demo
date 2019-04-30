@@ -25,9 +25,9 @@ export const PHONEPICKER_VALUE_ACCESSOR: any = {
   providers: [PHONEPICKER_VALUE_ACCESSOR]
 })
 export class PhonepickerComponent implements ControlValueAccessor {
-  private phonepicker: FormGroup;
-  private countries: Observable<Object>;
-  private isCallable: boolean = false;
+  public phonepicker: FormGroup;
+  public countries: Observable<Object>;
+  public isCallable: boolean = false;
 
   constructor(private _phonepickerService: PhonepickerService, private _formBuilder: FormBuilder) {
     this.phonepicker = this._formBuilder.group({
