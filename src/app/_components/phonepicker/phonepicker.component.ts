@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
+import { parsePhoneNumberFromString, parsePhoneNumber, ParseError } from 'libphonenumber-js'
 
 import { PhonepickerService } from './phonepicker.service';
 
@@ -10,19 +11,48 @@ interface Country {
   callingCodes: Array<string>
 }
 
+export const PHONEPICKER_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => PhonepickerComponent),
+  multi: true
+};
+
 @Component({
   selector: 'phonepicker',
   templateUrl: './phonepicker.component.html',
   styleUrls: ['./phonepicker.component.scss']
 })
-export class PhonepickerComponent {
-  private countries: Observable<Object>;
-  private isCallable: boolean = true;
+export class PhonepickerComponent implements ControlValueAccessor {
   public selectedCountry: Country;
   public phoneNumberButCountry: string;
+  private countries: Observable<Object>;
+  private isCallable: boolean = true;
+
+  private _modelChange: (value: any) => void;
+  private _modelTouched: (value: any) => void;
 
   constructor(private phonepickerService: PhonepickerService) {
     this.countries = this.phonepickerService.getCountries();
+  }
+
+  writeValue(phoneNumber: string): void {
+    try {
+      const pNumber = parsePhoneNumber(phoneNumber)
+    } catch (error) {
+      if (error instanceof ParseError) {
+        console.log(error.message)
+      } else {
+        throw error
+      }
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this._modelChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this._modelChange = fn;
   }
 
   getPhoneNumber(): string {
