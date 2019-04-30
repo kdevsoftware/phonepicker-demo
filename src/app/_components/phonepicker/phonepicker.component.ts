@@ -23,7 +23,7 @@ export const PHONEPICKER_VALUE_ACCESSOR: any = {
   styleUrls: ['./phonepicker.component.scss']
 })
 export class PhonepickerComponent implements ControlValueAccessor {
-  public selectedCountry: Country;
+  public country: Country;
   public phoneNumberButCountry: string;
   private countries: Observable<Object>;
   private isCallable: boolean = true;
@@ -45,6 +45,8 @@ export class PhonepickerComponent implements ControlValueAccessor {
         throw error
       }
     }
+
+    this._modelChange(this.getPhoneNumber())
   }
 
   registerOnChange(fn: any): void {
@@ -56,11 +58,11 @@ export class PhonepickerComponent implements ControlValueAccessor {
   }
 
   getPhoneNumber(): string {
-    return this.selectedCountry.callingCodes[0] + this.phoneNumberButCountry.replace(/\D/g, '');
+    return this.country.callingCodes[0] + this.phoneNumberButCountry.replace(/\D/g, '');
   }
 
   inputEventHandler(event: any) {
-    const phoneNumber = `+${this.selectedCountry.callingCodes[0] + event.target.value}`;
+    const phoneNumber = `+${this.country.callingCodes[0] + event.target.value}`;
 
     this.isCallable = !parsePhoneNumberFromString(phoneNumber).isValid();
 

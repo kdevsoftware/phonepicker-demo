@@ -1,4 +1,4 @@
-<p-dropdown [options]="countries | async" [(ngModel)]="selectedCountry" optionLabel="name">
+<p-dropdown [options]="countries | async" [(ngModel)]="country" optionLabel="name">
 
   <ng-template let-selectedCountry pTemplate="selectedItem">
     <div>+{{ selectedCountry.value.callingCodes }}</div>
