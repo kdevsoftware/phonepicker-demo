@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'phonepicker-demo';
+  phonepickerForm: FormGroup;
+
+  constructor(private _formBuilder: FormBuilder) {
+    this.phonepickerForm = this._formBuilder.group({
+      phonepicker: [null]
+    });
+  }
 }

@@ -1,3 +1,5 @@
-<div>
-  <phonepicker></phonepicker>
-</div>
+<form [formGroup]="phonepickerForm">
+  <phonepicker formControlName="phonepicker"></phonepicker>
+</form>
+
+{{ this.phonepickerForm.value | json }}
