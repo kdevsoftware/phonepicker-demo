@@ -18,7 +18,8 @@ Angular CLI: 7.2.4
 - [x] libphonenumber-js​​ for validation
 - [x] Insert the flag images to the dropdown option
 - [x] Styling as the following image:
-      ![alt text](https://github.com/kdevsoftware/phonepicker-demo/blob/master/mockup.png)
+
+![alt text](https://github.com/kdevsoftware/phonepicker-demo/blob/master/mockup.png)
 
 ## Development server
 
