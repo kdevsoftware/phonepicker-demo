@@ -16,10 +16,10 @@ interface Country {
   styleUrls: ['./phonepicker.component.scss']
 })
 export class PhonepickerComponent {
-  countries: Observable<Object>;
-  isCallable: boolean = true;
-  selectedCountry: Country;
-  phoneNumberButCountry: string;
+  private countries: Observable<Object>;
+  private isCallable: boolean = true;
+  public selectedCountry: Country;
+  public phoneNumberButCountry: string;
 
   constructor(private phonepickerService: PhonepickerService) {
     this.countries = this.phonepickerService.getCountries();
