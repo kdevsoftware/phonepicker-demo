@@ -45,6 +45,44 @@
           }
         }
       }
+
+      .ui-dropdown-panel {
+        top: 34px !important;
+        left: 4px !important;
+        min-width: calc(100% - 8px);
+
+        .ui-dropdown-items {
+          .ui-dropdown-item {
+            display: flex;
+            align-items: center;
+
+            .country-name {
+              margin-left: 24px;
+            }
+          }
+
+          .ui-dropdown-item.ui-state-highlight {
+            background-color: $calling-bg;
+          }
+        }
+
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: $dropdown-bg;
+          border: 4px solid transparent;
+          background-clip: content-box; /* THIS IS IMPORTANT */
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: $calling-bg;
+          border: 1px solid $calling-bg;
+          border-radius: 2px;
+        }
+      }
     }
   }
 

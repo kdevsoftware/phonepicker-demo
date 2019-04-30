@@ -8,7 +8,7 @@
 
       <ng-template let-country pTemplate="item">
         <div [ngClass]="'flag flag-' + country.value.alpha2Code.toLowerCase()"></div>
-        <div>{{ country.value.name }}</div>
+        <div class="country-name">{{ country.value.name }}</div>
       </ng-template>
 
     </p-dropdown>
