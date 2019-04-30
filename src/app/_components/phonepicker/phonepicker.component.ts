@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import { Observable } from 'rxjs';
+import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
 import { PhonepickerService } from './phonepicker.service';
 
